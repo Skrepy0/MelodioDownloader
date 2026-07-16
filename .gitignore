@@ -6,9 +6,10 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
+build
 node_modules
 dist
+.venv
 dist-ssr
 dist-electron
 release
@@ -30,3 +31,4 @@ pnpm-lock.yaml
 pnpm-workspace.yaml
 yarn.lock
 bun.lock
+py-dist

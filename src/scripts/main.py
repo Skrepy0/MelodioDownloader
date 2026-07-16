@@ -15,7 +15,7 @@ def main():
     result = []
     for _ in range(count):
         result.append({"name":indexTerm,
-                       "coverImage":"123456",
+                       "coverImage":"coverImage",
                        "downloadLink":"link"})
         
     print(json.dumps(result))
