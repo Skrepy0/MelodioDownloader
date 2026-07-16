@@ -15,6 +15,9 @@
   ],
   "type": "module",
   "scripts": {
+    "predev": "pnpm run pack-py",
+    "prebuild": "pnpm run pack-py",
+    "pack-py": "node scripts/pack-python.cjs",
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build && electron-builder",
     "preview": "vite preview",
@@ -22,8 +25,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.7",
-    "electron": "^42.1.0",
-    "electron-builder": "^26.8.1",
+    "electron": "41.1.0",
+    "electron-builder": "26.8.1",
     "typescript": "^6.0.3",
     "vite": "^8.0.16",
     "vite-plugin-electron": "^1.0.1",
@@ -32,7 +35,6 @@
     "vue-tsc": "^3.3.3"
   },
   "dependencies": {
-    "prettier": "^3.9.5",
-    "python-shell": "^5.0.0"
+    "prettier": "^3.9.5"
   }
 }

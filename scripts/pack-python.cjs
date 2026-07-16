@@ -5,7 +5,8 @@ const path = require('path')
 
 // 定义路径
 const projectRoot = path.resolve(__dirname, '..')
-const venvPath = path.join(projectRoot, 'venv')
+const venvPath1 = path.join(projectRoot, 'venv')
+const venvPath2 = path.join(projectRoot, '.venv')
 const mainScript = path.join(projectRoot, 'src', 'scripts', 'main.py')
 const specFile = path.join(projectRoot, 'main.spec') // .spec 文件路径
 const outputDir = path.join(projectRoot, 'py-dist')
@@ -24,9 +25,11 @@ if (!fs.existsSync(specFile)) {
 
 // 确定 Python 可执行文件路径
 let pythonExe = 'python'
-if (fs.existsSync(venvPath)) {
+if (fs.existsSync(venvPath1) || fs.existsSync(venvPath2)) {
   const isWin = process.platform === 'win32'
-  const venvPython = isWin ? path.join(venvPath, 'Scripts', 'python.exe') : path.join(venvPath, 'bin', 'python')
+  const venvPython = isWin
+    ? path.join(fs.existsSync(venvPath1) ? venvPath1 : venvPath2, 'Scripts', 'python.exe')
+    : path.join(venvPath, 'bin', 'python')
   if (fs.existsSync(venvPython)) {
     pythonExe = venvPython
     console.log(`✅ 使用虚拟环境 Python: ${pythonExe}`)

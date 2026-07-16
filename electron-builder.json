@@ -1,12 +1,17 @@
 {
-  "$schema": "./node_modules/app-builder-lib/scheme.json",
-  "appId": "YourAppID",
+  "appId": "com.skrepy.melodiodownloader",
+  "productName": "MelodioDownloader",
   "asar": true,
-  "productName": "YourAppName",
   "directories": {
     "output": "release/${version}"
   },
   "files": ["dist", "dist-electron"],
+  "extraResources": [
+    {
+      "from": "py-dist/main.exe",
+      "to": "bin/main.exe"
+    }
+  ],
   "mac": {
     "target": ["dmg"],
     "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
@@ -22,9 +27,10 @@
   },
   "nsis": {
     "oneClick": false,
-    "perMachine": false,
+    "perMachine": true,
     "allowToChangeInstallationDirectory": true,
-    "deleteAppDataOnUninstall": false
+    "createDesktopShortcut": true,
+    "license": "./LICENSE"
   },
   "linux": {
     "target": ["AppImage"],
