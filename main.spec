@@ -7,7 +7,7 @@ from pathlib import Path
 BASE_DIR = Path(os.path.dirname(os.path.abspath(sys.argv[0])))
 
 a = Analysis(
-    [str(BASE_DIR / 'src/scripts/main.py')],   
+    [str(BASE_DIR / 'src/scripts/main.py'),str(BASE_DIR / 'src/scripts/dataclass.py')],   
     pathex=[str(BASE_DIR)],                    
     binaries=[],                               
     datas=[],                                  

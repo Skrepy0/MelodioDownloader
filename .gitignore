@@ -32,3 +32,4 @@ pnpm-workspace.yaml
 yarn.lock
 bun.lock
 py-dist
+src/scripts/musicdl_outputs/*
